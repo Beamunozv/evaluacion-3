@@ -1,0 +1,48 @@
+from IPython.display import clear_output
+lista=[]
+cliente=[]
+contador_clientes=0
+print("Menu inmobiliaria IMMO Ltda\nELIJA UNA OPCION SEGUN EL NUMERO:\n1.RegistrarCliente\n2.buscar por rut\n3.imprimir reporte de renta\n4.Salir")
+while op:=10:
+  op=int(input("(MENU) usted elige la opcion: "))
+  if op==1:
+    while True:
+      rut_cliente=(input("ingrese un rut de 8 a 9 digitos numericos: "))
+      if len(rut_cliente)>=8 and len(rut_cliente)<=9:
+         print("rut de cliente registrado")
+         break
+      else:
+         print("rut de cliente no permitido")
+
+    nombre_cliente=(input("ingrese su nombre: "))
+    print(f"su nombre {nombre_cliente} fue registrado")
+    proyecto=int(input("cual proyecto desea?\n1=Vive Santiago\n2=Vive Florida\n3=Vive Ñuñoa "))
+    if proyecto==1:
+         print("su proyecto fue registrado como Vive Santiago")
+         proyecto="VS"
+    if proyecto==2:
+         print("su proyecto fue registrado como Vive Florida")
+         proyecto="VF"
+    if proyecto==3:
+         print("su proyecto fue registrado como Vive Ñuñoa")
+         proyecto="VN"
+    renta_mensual=(input("ingrese su renta mensual de minimo 6 digitos y sin puntos"))
+    if len(renta_mensual)>=6 and len(renta_mensual)<=6:
+     print("renta mensual registrada")
+    lista=[rut_cliente,nombre_cliente,proyecto,renta_mensual]
+    cliente.append(lista)
+    contador_clientes=contador_clientes+1
+  if op==2:
+    buscar=(input("ingrese su rut: "))
+    for lista in cliente:
+      if lista[0]==buscar:
+         print(lista[0])
+         print(lista[1])
+         print(lista[2])
+         print(lista[3]) #rentaM
+  if op==3:
+        print(f"REPORTES\nRut:{(lista[0])}\nNombre Cliente:{(lista[1])}\nRenta mensual:{(lista[3])}\nNombre Proyecto:{(lista[2])}\nHay un total de {contador_clientes} clientes en la lista")
+        False
+  if op==4:
+    print("hasta luego, adios.")
+    break
